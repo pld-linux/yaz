@@ -1,19 +1,19 @@
 Summary:	Z39.50 protocol support library
 Summary(pl):	Biblioteka obs³uguj±ca protokó³ Z39.50
 Name:		yaz
-Version:	2.0.4
+Version:	2.0.6
 Release:	1
 License:	BSD-like
 Vendor:		Index Data ApS <info@indexdata.dk>
 Group:		Libraries
 Source0:	http://ftp.indexdata.dk/pub/yaz/%{name}-%{version}.tar.gz
-# Source0-md5:	4d15e3521ae2cbbf5c5512ebc3d0fe5e
+# Source0-md5:	b11127afa0b380f09f9b6c3bc621f113
 Patch0:		%{name}-libwrap-fix.patch
 Patch1:		%{name}-link.patch
 URL:		http://www.indexdata.dk/yaz/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	libtool
+BuildRequires:	libtool >= 1:1.4.2-9
 BuildRequires:	libwrap-devel
 BuildRequires:	openssl-devel >= 0.9.7c
 BuildRequires:	readline-devel
@@ -58,7 +58,6 @@ Statyczne biblioteki YAZ.
 %patch1 -p1
 
 %build
-rm -f missing
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
@@ -89,10 +88,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc CHANGELOG README LICENSE TODO
-%attr(755,root,root) %{_bindir}/yaz-client*
-%attr(755,root,root) %{_bindir}/yaz-ztest*
+%doc CHANGELOG LICENSE README TODO
 %attr(755,root,root) %{_bindir}/yaz-asncomp
+%attr(755,root,root) %{_bindir}/yaz-client*
+%attr(755,root,root) %{_bindir}/yaz-iconv
+%attr(755,root,root) %{_bindir}/yaz-marcdump
+%attr(755,root,root) %{_bindir}/yaz-ztest*
 %attr(755,root,root) %{_bindir}/zoomsh
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %dir %{_datadir}/yaz
@@ -101,6 +102,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/yaz/z39.50
 %{_mandir}/man1/yaz-asncomp.1*
 %{_mandir}/man1/yaz-client*.1*
+%{_mandir}/man1/yaz-iconv.1*
+%{_mandir}/man1/yaz-marcdump.1*
 %{_mandir}/man1/zoomsh.1*
 %{_mandir}/man7/yaz.7*
 %{_mandir}/man8/yaz-ztest*.8*
