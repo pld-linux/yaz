@@ -55,8 +55,8 @@ Statyczne biblioteki YAZ.
 %build
 rm -f missing
 aclocal
-autoconf
-automake -a -c -f --foreign
+%{__autoconf}
+%{__automake}
 %configure \
 	--enable-shared \
 	--enable-tcpd
