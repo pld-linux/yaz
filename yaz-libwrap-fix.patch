@@ -34,13 +34,12 @@
  dnl
  dnl ------ Headers
  AC_CHECK_HEADERS(fnmatch.h)
---- yaz-1.8.6/server/Makefile.am.orig	Fri May  3 17:52:47 2002
-+++ yaz-1.8.6/server/Makefile.am	Fri May  3 17:52:36 2002
-@@ -7,6 +7,6 @@
+--- yaz-1.9.2/server/Makefile.am.orig	Fri May  3 17:52:47 2002
++++ yaz-1.9.2/server/Makefile.am	Fri May  3 17:52:36 2002
+@@ -7,4 +7,6 @@
  
  EXTRA_DIST=service.c
  
--LIBS =
 +LIBS = $(WRAPLIBS)
- 
- INCLUDES=-I$(top_srcdir)/include 
++
+ AM_CPPFLAGS=-I$(top_srcdir)/include 
