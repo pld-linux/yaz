@@ -1,13 +1,13 @@
 Summary:	Z39.50 protocol support library
 Summary(pl):	Biblioteka obs³uguj±ca protokó³ Z39.50
 Name:		yaz
-Version:	2.0.19
+Version:	2.0.21
 Release:	1
 License:	BSD-like
 Vendor:		Index Data ApS <info@indexdata.dk>
 Group:		Libraries
 Source0:	http://ftp.indexdata.dk/pub/yaz/%{name}-%{version}.tar.gz
-# Source0-md5:	3c303759e2aa01ce4fefa139e3e4c656
+# Source0-md5:	4b38ecd1df6a52b26d140d8ce33475d0
 Patch0:		%{name}-libwrap-fix.patch
 Patch1:		%{name}-link.patch
 URL:		http://www.indexdata.dk/yaz/
@@ -15,6 +15,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool >= 1:1.4.2-9
 BuildRequires:	libwrap-devel
+BuildRequires:	libxml2-devel
 BuildRequires:	openssl-devel >= 0.9.7d
 BuildRequires:	readline-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -33,6 +34,8 @@ Summary(pl):	Pliki nag³ówkowe biblioteki YAZ
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libwrap-devel
+Requires:	libxml2-devel
+Requires:	openssl-devel >= 0.9.7d
 
 %description devel
 Header files for YAZ library.
