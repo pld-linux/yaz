@@ -1,7 +1,7 @@
 Summary:	Z39.50 protocol support library
 Summary(pl):	Biblioteka obs³uguj±ca protokó³ Z39.50
 Name:		yaz
-Version:	1.8.8
+Version:	1.9.2
 Release:	1
 License:	BSD-like
 Vendor:		Index Data ApS <info@indexdata.dk>
@@ -12,6 +12,7 @@ URL:		http://www.indexdata.dk/yaz/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libwrap-devel
+BuildRequires:	openssl-devel
 BuildRequires:	readline-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -59,7 +60,8 @@ rm -f missing
 %{__automake}
 %configure \
 	--enable-shared \
-	--enable-tcpd
+	--enable-tcpd \
+	--with-openssl
 
 %{__make}
 
@@ -83,15 +85,18 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README LICENSE CHANGELOG TODO
-%config %{_datadir}/yaz/tab
-%attr(755,root,root) %{_bindir}/yaz-client
-%attr(755,root,root) %{_bindir}/yaz-ztest
+%attr(755,root,root) %{_bindir}/yaz-client*
+%attr(755,root,root) %{_bindir}/yaz-ztest*
 %attr(755,root,root) %{_bindir}/yaz-comp
 %attr(755,root,root) %{_bindir}/zoomsh
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %dir %{_datadir}/yaz
 %{_datadir}/yaz/ill
 %{_datadir}/yaz/z39.50
+%{_mandir}/man1/yaz-client*.1*
+%{_mandir}/man1/zoomsh.1*
+%{_mandir}/man7/yaz.7*
+%{_mandir}/man8/yaz-ztest*.8*
 
 %files devel
 %defattr(644,root,root,755)
@@ -101,6 +106,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/lib*.la
 %{_includedir}/yaz
 %{_aclocaldir}/yaz.m4
+%{_mandir}/man1/yaz-config.1*
 
 %files static
 %defattr(644,root,root,755)
