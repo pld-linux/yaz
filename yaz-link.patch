@@ -1,18 +1,20 @@
---- yaz-1.9.2/lib/Makefile.am.orig	Tue Oct 22 14:51:18 2002
-+++ yaz-1.9.2/lib/Makefile.am	Thu Jan  2 19:32:27 2003
-@@ -21,13 +21,13 @@
- # No real sources
+--- yaz-2.0.2/lib/Makefile.am.orig	2003-04-18 01:24:00.000000000 +0200
++++ yaz-2.0.2/lib/Makefile.am	2003-05-12 23:59:08.000000000 +0200
+@@ -22,7 +22,7 @@
  libyaz_la_SOURCES=
+ libyaz_la_LDFLAGS=-version-info $(YAZ_VERSION_INFO)
  
 -libyazthread_la_LIBADD=nmem.lo statserv.lo eventl.lo
 +libyazthread_la_LIBADD=nmem.lo statserv.lo eventl.lo -lpthread
  libyazthread_la_SOURCES=
+ libyazthread_la_LDFLAGS=-version-info $(YAZ_VERSION_INFO)
  
- libyazmalloc_la_LIBADD=xmalloc.lo
+@@ -30,7 +30,7 @@
  libyazmalloc_la_SOURCES=
+ libyazmalloc_la_LDFLAGS=-version-info $(YAZ_VERSION_INFO)
  
 -libyazssl_la_LIBADD=tcpip.lo comstack.lo
 +libyazssl_la_LIBADD=tcpip.lo comstack.lo $(SSL_LIBS)
  libyazssl_la_SOURCES=
+ libyazssl_la_LDFLAGS=-version-info $(YAZ_VERSION_INFO)
  
- THREADED_FLAGS = -I$(top_srcdir)/include -I$(top_srcdir)/server @CFLAGSTHREADS@

@@ -1,7 +1,7 @@
 Summary:	Z39.50 protocol support library
 Summary(pl):	Biblioteka obs³uguj±ca protokó³ Z39.50
 Name:		yaz
-Version:	2.0
+Version:	2.0.2
 Release:	1
 License:	BSD-like
 Vendor:		Index Data ApS <info@indexdata.dk>
@@ -110,7 +110,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/lib*.la
 %{_includedir}/yaz
 %{_aclocaldir}/yaz.m4
-%{_mandir}/man1/yaz-config.1*
+%{_mandir}/man8/yaz-config.8*
 
 %files static
 %defattr(644,root,root,755)
