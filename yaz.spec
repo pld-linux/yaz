@@ -63,8 +63,11 @@ automake -a -c -f --foreign
 
 %{__make}
 
+gzip -9nf README LICENSE CHANGELOG TODO
+
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
@@ -72,8 +75,6 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 mv -f $RPM_BUILD_ROOT%{_datadir}/yaz/doc ./doc-dist
-
-gzip -9nf README LICENSE CHANGELOG TODO
 
 %clean
 rm -rf $RPM_BUILD_ROOT
