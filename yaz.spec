@@ -12,6 +12,7 @@ Patch1:		%{name}-link.patch
 URL:		http://www.indexdata.dk/yaz/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	libtool
 BuildRequires:	libwrap-devel
 BuildRequires:	openssl-devel
 BuildRequires:	readline-devel
@@ -57,6 +58,7 @@ Statyczne biblioteki YAZ.
 
 %build
 rm -f missing
+%{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
