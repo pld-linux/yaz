@@ -8,6 +8,7 @@ Vendor:		Index Data ApS <info@indexdata.dk>
 Group:		Libraries
 Source0:	http://ftp.indexdata.dk/pub/yaz/%{name}-%{version}.tar.gz
 Patch0:		%{name}-libwrap-fix.patch
+Patch1:		%{name}-link.patch
 URL:		http://www.indexdata.dk/yaz/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -51,7 +52,8 @@ Statyczne biblioteki YAZ.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
+%patch1 -p1
 
 %build
 rm -f missing
@@ -84,7 +86,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README LICENSE CHANGELOG TODO
+%doc CHANGELOG README LICENSE TODO
 %attr(755,root,root) %{_bindir}/yaz-client*
 %attr(755,root,root) %{_bindir}/yaz-ztest*
 %attr(755,root,root) %{_bindir}/yaz-comp
