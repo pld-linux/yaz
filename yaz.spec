@@ -1,7 +1,7 @@
 Summary:	Z39.50 protocol support library
 Summary(pl):	Biblioteka obs³uguj±ca protokó³ Z39.50
 Name:		yaz
-Version:	1.8.7
+Version:	1.8.8
 Release:	1
 License:	BSD-like
 Vendor:		Index Data ApS <info@indexdata.dk>
@@ -63,8 +63,6 @@ aclocal
 
 %{__make}
 
-gzip -9nf README LICENSE CHANGELOG TODO
-
 %install
 rm -rf $RPM_BUILD_ROOT
 
@@ -74,7 +72,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install -C doc \
 	DESTDIR=$RPM_BUILD_ROOT
 
-mv -f $RPM_BUILD_ROOT%{_datadir}/yaz/doc ./doc-dist
+mv -f $RPM_BUILD_ROOT%{_docdir}/yaz ./doc-dist
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -84,7 +82,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc README LICENSE CHANGELOG TODO
 %config %{_datadir}/yaz/tab
 %attr(755,root,root) %{_bindir}/yaz-client
 %attr(755,root,root) %{_bindir}/yaz-ztest
