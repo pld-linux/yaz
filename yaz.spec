@@ -98,7 +98,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc doc-dist/*
 %attr(755,root,root) %{_bindir}/yaz-config
 %attr(755,root,root) %{_libdir}/lib*.so
-%attr(755,root,root) %{_libdir}/lib*.la
+%{_libdir}/lib*.la
 %{_includedir}/yaz
 %{_aclocaldir}/yaz.m4
 
