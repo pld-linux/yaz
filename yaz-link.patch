@@ -1,20 +1,16 @@
---- yaz-2.0.2/lib/Makefile.am.orig	2003-04-18 01:24:00.000000000 +0200
-+++ yaz-2.0.2/lib/Makefile.am	2003-05-12 23:59:08.000000000 +0200
-@@ -22,7 +22,7 @@
- libyaz_la_SOURCES=
- libyaz_la_LDFLAGS=-version-info $(YAZ_VERSION_INFO)
+--- yaz-2.0.6/src/Makefile.am.orig	2003-12-07 11:14:58.000000000 +0100
++++ yaz-2.0.6/src/Makefile.am	2003-12-07 11:15:47.250030720 +0100
+@@ -67,11 +67,11 @@
+ libyaz_la_LIBADD=$(WRAPLIBS)
  
--libyazthread_la_LIBADD=nmem.lo statserv.lo eventl.lo
-+libyazthread_la_LIBADD=nmem.lo statserv.lo eventl.lo -lpthread
  libyazthread_la_SOURCES=
+-libyazthread_la_LIBADD=thr-nmem.lo thr-statserv.lo thr-eventl.lo
++libyazthread_la_LIBADD=thr-nmem.lo thr-statserv.lo thr-eventl.lo libyaz.la -lpthread
  libyazthread_la_LDFLAGS=-version-info $(YAZ_VERSION_INFO)
  
-@@ -30,7 +30,7 @@
- libyazmalloc_la_SOURCES=
- libyazmalloc_la_LDFLAGS=-version-info $(YAZ_VERSION_INFO)
- 
--libyazssl_la_LIBADD=tcpip.lo comstack.lo
-+libyazssl_la_LIBADD=tcpip.lo comstack.lo $(SSL_LIBS)
  libyazssl_la_SOURCES=
+-libyazssl_la_LIBADD=ssl-comstack.lo ssl-tcpip.lo
++libyazssl_la_LIBADD=ssl-comstack.lo ssl-tcpip.lo libyaz.la $(SSL_LIBS)
  libyazssl_la_LDFLAGS=-version-info $(YAZ_VERSION_INFO)
  
+ # Rules for Z39.50 V3

@@ -34,14 +34,13 @@
  dnl
  dnl ------ Headers
  AC_CHECK_HEADERS(fnmatch.h wchar.h locale.h langinfo.h)
---- yaz-2.0/server/Makefile.am.orig	Tue Feb 18 09:08:02 2003
-+++ yaz-2.0/server/Makefile.am	Tue Mar 11 11:51:43 2003
-@@ -5,6 +5,8 @@
- libserver_la_SOURCES = eventl.c seshigh.c statserv.c requestq.c tcpdchk.c \
-  eventl.h service.h session.h
+--- yaz-2.0.6/src/Makefile.am.orig	2003-10-27 13:21:30.000000000 +0100
++++ yaz-2.0.6/src/Makefile.am	2003-12-07 11:14:22.779872136 +0100
+@@ -64,6 +64,7 @@
+   eventl.c seshigh.c statserv.c requestq.c tcpdchk.c \
+   eventl.h service.c service.h session.h
+ libyaz_la_LDFLAGS=-version-info $(YAZ_VERSION_INFO)
++libyaz_la_LIBADD=$(WRAPLIBS)
  
-+LIBS = $(WRAPLIBS)
-+
- EXTRA_DIST=service.c
- 
- AM_CPPFLAGS=-I$(top_srcdir)/include  $(XML2_CFLAGS) -DDOCDIR=\"$(datadir)/doc/$(PACKAGE)\"
+ libyazthread_la_SOURCES=
+ libyazthread_la_LIBADD=thr-nmem.lo thr-statserv.lo thr-eventl.lo
