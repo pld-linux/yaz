@@ -53,6 +53,7 @@ Statyczne biblioteki YAZ.
 %patch -p1
 
 %build
+rm -f missing
 aclocal
 autoconf
 automake -a -c -f --foreign
