@@ -90,7 +90,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/yaz-comp
 %attr(755,root,root) %{_bindir}/zoomsh
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%{_datadir}/yaz
+%dir %{_datadir}/yaz
+%{_datadir}/yaz/ill
+%{_datadir}/yaz/z39.50
 
 %files devel
 %defattr(644,root,root,755)
