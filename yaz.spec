@@ -1,7 +1,7 @@
 Summary:	Z39.50 protocol support library
 Summary(pl):	Biblioteka obs³uguj±ca protokó³ Z39.50
 Name:		yaz
-Version:	1.9.2
+Version:	2.0
 Release:	1
 License:	BSD-like
 Vendor:		Index Data ApS <info@indexdata.dk>
@@ -12,6 +12,7 @@ Patch1:		%{name}-link.patch
 URL:		http://www.indexdata.dk/yaz/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	libtool
 BuildRequires:	libwrap-devel
 BuildRequires:	openssl-devel >= 0.9.7
 BuildRequires:	readline-devel
@@ -57,6 +58,7 @@ Statyczne biblioteki YAZ.
 
 %build
 rm -f missing
+%{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
