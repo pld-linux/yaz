@@ -1,13 +1,13 @@
 Summary:	Z39.50 protocol support library
 Summary(pl):	Biblioteka obs³uguj±ca protokó³ Z39.50
 Name:		yaz
-Version:	2.0.3
+Version:	2.0.4
 Release:	1
 License:	BSD-like
 Vendor:		Index Data ApS <info@indexdata.dk>
 Group:		Libraries
 Source0:	http://ftp.indexdata.dk/pub/yaz/%{name}-%{version}.tar.gz
-# Source0-md5:	17f4631cde802de5d779672b638f27eb
+# Source0-md5:	4d15e3521ae2cbbf5c5512ebc3d0fe5e
 Patch0:		%{name}-libwrap-fix.patch
 Patch1:		%{name}-link.patch
 URL:		http://www.indexdata.dk/yaz/
