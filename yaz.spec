@@ -1,13 +1,13 @@
 Summary:	Z39.50 protocol support library
 Summary(pl):	Biblioteka obs³uguj±ca protokó³ Z39.50
 Name:		yaz
-Version:	2.0.10
+Version:	2.0.15
 Release:	1
 License:	BSD-like
 Vendor:		Index Data ApS <info@indexdata.dk>
 Group:		Libraries
 Source0:	http://ftp.indexdata.dk/pub/yaz/%{name}-%{version}.tar.gz
-# Source0-md5:	f890919e965ca584c162fcd27396368c
+# Source0-md5:	88dfe2d30bc6644a8919b8dca7a437c9
 Patch0:		%{name}-libwrap-fix.patch
 Patch1:		%{name}-link.patch
 URL:		http://www.indexdata.dk/yaz/
@@ -31,7 +31,7 @@ korzystaj±cych z protoko³u ANSI/NISO Z39.50 do uzyskiwania informacji.
 Summary:	Header files for YAZ library
 Summary(pl):	Pliki nag³ówkowe biblioteki YAZ
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	libwrap-devel
 
 %description devel
@@ -44,7 +44,7 @@ Pliki nag³ówkowe biblioteki YAZ.
 Summary:	YAZ static libraries
 Summary(pl):	Statyczne biblioteki YAZ
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 YAZ static libraries.
