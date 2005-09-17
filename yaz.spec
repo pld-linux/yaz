@@ -2,7 +2,7 @@ Summary:	Z39.50 protocol support library
 Summary(pl):	Biblioteka obs³uguj±ca protokó³ Z39.50
 Name:		yaz
 Version:	2.1.8
-Release:	1
+Release:	2
 License:	BSD-like
 Vendor:		Index Data ApS <info@indexdata.dk>
 Group:		Libraries
@@ -17,7 +17,7 @@ BuildRequires:	libtool >= 1:1.4.2-9
 BuildRequires:	libwrap-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	openssl-devel >= 0.9.7d
-BuildRequires:	readline-devel
+BuildRequires:	readline-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
