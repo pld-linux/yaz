@@ -1,5 +1,5 @@
 Summary:	Z39.50 protocol support library
-Summary(pl.UTF-8):   Biblioteka obsługująca protokół Z39.50
+Summary(pl.UTF-8):	Biblioteka obsługująca protokół Z39.50
 Name:		yaz
 Version:	2.1.40
 Release:	1
@@ -28,7 +28,7 @@ korzystających z protokołu ANSI/NISO Z39.50 do uzyskiwania informacji.
 
 %package devel
 Summary:	Header files for YAZ library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki YAZ
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki YAZ
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libwrap-devel
@@ -43,7 +43,7 @@ Pliki nagłówkowe biblioteki YAZ.
 
 %package static
 Summary:	YAZ static libraries
-Summary(pl.UTF-8):   Statyczne biblioteki YAZ
+Summary(pl.UTF-8):	Statyczne biblioteki YAZ
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
