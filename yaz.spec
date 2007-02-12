@@ -1,5 +1,5 @@
 Summary:	Z39.50 protocol support library
-Summary(pl):	Biblioteka obs硊guj眂a protok蟪 Z39.50
+Summary(pl.UTF-8):   Biblioteka obs艂uguj膮ca protok贸艂 Z39.50
 Name:		yaz
 Version:	2.1.40
 Release:	1
@@ -22,13 +22,13 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 YAZ is a C library for developing client - and server applications
 using the ANSI/NISO Z39.50 protocol for Information Retrieval.
 
-%description -l pl
-YAZ to biblioteka w C do tworzenia aplikacji klienckich i serwer體
-korzystaj眂ych z protoko硊 ANSI/NISO Z39.50 do uzyskiwania informacji.
+%description -l pl.UTF-8
+YAZ to biblioteka w C do tworzenia aplikacji klienckich i serwer贸w
+korzystaj膮cych z protoko艂u ANSI/NISO Z39.50 do uzyskiwania informacji.
 
 %package devel
 Summary:	Header files for YAZ library
-Summary(pl):	Pliki nag丑wkowe biblioteki YAZ
+Summary(pl.UTF-8):   Pliki nag艂贸wkowe biblioteki YAZ
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libwrap-devel
@@ -38,19 +38,19 @@ Requires:	openssl-devel >= 0.9.7d
 %description devel
 Header files for YAZ library.
 
-%description devel -l pl
-Pliki nag丑wkowe biblioteki YAZ.
+%description devel -l pl.UTF-8
+Pliki nag艂贸wkowe biblioteki YAZ.
 
 %package static
 Summary:	YAZ static libraries
-Summary(pl):	Statyczne biblioteki YAZ
+Summary(pl.UTF-8):   Statyczne biblioteki YAZ
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 YAZ static libraries.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczne biblioteki YAZ.
 
 %prep
