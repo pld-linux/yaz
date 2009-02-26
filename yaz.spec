@@ -1,22 +1,21 @@
 Summary:	Z39.50 protocol support library
 Summary(pl.UTF-8):	Biblioteka obsługująca protokół Z39.50
 Name:		yaz
-Version:	2.1.48
-Release:	2
+Version:	3.0.44
+Release:	1
 License:	BSD-like
 Group:		Libraries
 Source0:	http://ftp.indexdata.dk/pub/yaz/%{name}-%{version}.tar.gz
-# Source0-md5:	bcb24337e5a84386865c3fd6d05ce199
+# Source0-md5:	330730a4a7a097447ed3abe09d38e0ce
 Patch0:		%{name}-libwrap-fix.patch
-Patch1:		%{name}-pcap.patch
 URL:		http://www.indexdata.dk/yaz/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.8
-BuildRequires:	libpcap-devel
 BuildRequires:	libtool >= 1:1.4.2-9
 BuildRequires:	libwrap-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	openssl-devel >= 0.9.7d
+BuildRequires:  pkgconfig
 BuildRequires:	readline-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -58,7 +57,6 @@ Statyczne biblioteki YAZ.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__libtoolize}
@@ -91,15 +89,16 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc LICENSE NEWS README TODO
+%doc LICENSE NEWS README ChangeLog
 %attr(755,root,root) %{_bindir}/yaz-asncomp
 %attr(755,root,root) %{_bindir}/yaz-client*
 %attr(755,root,root) %{_bindir}/yaz-iconv
+%attr(755,root,root) %{_bindir}/yaz-icu
+%attr(755,root,root) %{_bindir}/yaz-illclient
 %attr(755,root,root) %{_bindir}/yaz-marcdump
 %attr(755,root,root) %{_bindir}/yaz-ztest*
-%attr(755,root,root) %{_bindir}/ziffy
 %attr(755,root,root) %{_bindir}/zoomsh
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/lib*.so.*
 %dir %{_datadir}/yaz
 %{_datadir}/yaz/etc
 %{_datadir}/yaz/ill
@@ -107,22 +106,25 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/yaz-asncomp.1*
 %{_mandir}/man1/yaz-client*.1*
 %{_mandir}/man1/yaz-iconv.1*
+%{_mandir}/man1/yaz-icu.1*
+%{_mandir}/man1/yaz-illclient.1*
 %{_mandir}/man1/yaz-marcdump.1*
-%{_mandir}/man1/ziffy.1*
 %{_mandir}/man1/zoomsh.1*
+%{_mandir}/man7/bib1-attr.7*
 %{_mandir}/man7/yaz.7*
 %{_mandir}/man7/yaz-log.7*
 %{_mandir}/man8/yaz-ztest*.8*
 
 %files devel
 %defattr(644,root,root,755)
-%doc doc-dist/*
+%doc doc-dist/* 
 %attr(755,root,root) %{_bindir}/yaz-config
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
 %{_includedir}/yaz
 %{_aclocaldir}/yaz.m4
 %{_mandir}/man8/yaz-config.8*
+%{_pkgconfigdir}/yaz.pc
 
 %files static
 %defattr(644,root,root,755)
