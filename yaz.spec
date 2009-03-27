@@ -9,14 +9,18 @@ Source0:	http://ftp.indexdata.dk/pub/yaz/%{name}-%{version}.tar.gz
 # Source0-md5:	330730a4a7a097447ed3abe09d38e0ce
 Patch0:		%{name}-libwrap-fix.patch
 URL:		http://www.indexdata.dk/yaz/
-BuildRequires:	autoconf >= 2.59
-BuildRequires:	automake >= 1:1.8
+BuildRequires:	autoconf >= 2.60
+BuildRequires:	automake >= 1:1.9
+BuildRequires:	bison
+BuildRequires:	libicu-devel
 BuildRequires:	libtool >= 1:1.4.2-9
 BuildRequires:	libwrap-devel
-BuildRequires:	libxml2-devel
+BuildRequires:	libxml2-devel >= 2.0
+BuildRequires:	libxslt-devel >= 1.1.0
 BuildRequires:	openssl-devel >= 0.9.7d
-BuildRequires:  pkgconfig
+BuildRequires:	pkgconfig
 BuildRequires:	readline-devel >= 5.0
+BuildRequires:	tcl
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -33,7 +37,8 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki YAZ
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libwrap-devel
-Requires:	libxml2-devel
+Requires:	libxml2-devel >= 2.0
+Requires:	libxslt-devel >= 1.1.0
 Requires:	openssl-devel >= 0.9.7d
 
 %description devel
@@ -98,7 +103,12 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/yaz-marcdump
 %attr(755,root,root) %{_bindir}/yaz-ztest*
 %attr(755,root,root) %{_bindir}/zoomsh
-%attr(755,root,root) %{_libdir}/lib*.so.*
+%attr(755,root,root) %{_libdir}/libyaz.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libyaz.so.3
+%attr(755,root,root) %{_libdir}/libyaz_icu.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libyaz_icu.so.3
+%attr(755,root,root) %{_libdir}/libyaz_server.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libyaz_server.so.3
 %dir %{_datadir}/yaz
 %{_datadir}/yaz/etc
 %{_datadir}/yaz/ill
@@ -119,8 +129,12 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc doc-dist/* 
 %attr(755,root,root) %{_bindir}/yaz-config
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/libyaz.so
+%attr(755,root,root) %{_libdir}/libyaz_icu.so
+%attr(755,root,root) %{_libdir}/libyaz_server.so
+%{_libdir}/libyaz.la
+%{_libdir}/libyaz_icu.la
+%{_libdir}/libyaz_server.la
 %{_includedir}/yaz
 %{_aclocaldir}/yaz.m4
 %{_mandir}/man8/yaz-config.8*
@@ -128,4 +142,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libyaz.a
+%{_libdir}/libyaz_icu.a
+%{_libdir}/libyaz_server.a
