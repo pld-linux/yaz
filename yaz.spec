@@ -79,12 +79,10 @@ Statyczne biblioteki YAZ.
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
+	docDATA_INSTALL="install -p" \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%{__make} install -C doc \
-	DESTDIR=$RPM_BUILD_ROOT
-
-mv -f $RPM_BUILD_ROOT%{_docdir}/yaz ./doc-dist
+mv -f $RPM_BUILD_ROOT%{_docdir}/yaz doc-dist
 
 %clean
 rm -rf $RPM_BUILD_ROOT
