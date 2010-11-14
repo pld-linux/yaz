@@ -1,18 +1,17 @@
 Summary:	Z39.50 protocol support library
 Summary(pl.UTF-8):	Biblioteka obsługująca protokół Z39.50
 Name:		yaz
-Version:	3.0.44
-Release:	5
+Version:	4.1.2
+Release:	1
 License:	BSD-like
 Group:		Libraries
 Source0:	http://ftp.indexdata.dk/pub/yaz/%{name}-%{version}.tar.gz
-# Source0-md5:	330730a4a7a097447ed3abe09d38e0ce
-Patch0:		%{name}-libwrap-fix.patch
+# Source0-md5:	54e76ff8ee6f460d68678df298e7da71
 URL:		http://www.indexdata.dk/yaz/
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	bison
-BuildRequires:	libicu-devel
+BuildRequires:	libicu-devel >= 3.4
 BuildRequires:	libtool >= 1:1.4.2-9
 BuildRequires:	libwrap-devel
 BuildRequires:	libxml2-devel >= 2.0
@@ -61,7 +60,6 @@ Statyczne biblioteki YAZ.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__libtoolize}
@@ -92,21 +90,22 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc LICENSE NEWS README ChangeLog
+%doc ChangeLog LICENSE NEWS README
 %attr(755,root,root) %{_bindir}/yaz-asncomp
 %attr(755,root,root) %{_bindir}/yaz-client*
 %attr(755,root,root) %{_bindir}/yaz-iconv
 %attr(755,root,root) %{_bindir}/yaz-icu
 %attr(755,root,root) %{_bindir}/yaz-illclient
+%attr(755,root,root) %{_bindir}/yaz-json-parse
 %attr(755,root,root) %{_bindir}/yaz-marcdump
 %attr(755,root,root) %{_bindir}/yaz-ztest*
 %attr(755,root,root) %{_bindir}/zoomsh
 %attr(755,root,root) %{_libdir}/libyaz.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libyaz.so.3
+%attr(755,root,root) %ghost %{_libdir}/libyaz.so.4
 %attr(755,root,root) %{_libdir}/libyaz_icu.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libyaz_icu.so.3
+%attr(755,root,root) %ghost %{_libdir}/libyaz_icu.so.4
 %attr(755,root,root) %{_libdir}/libyaz_server.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libyaz_server.so.3
+%attr(755,root,root) %ghost %{_libdir}/libyaz_server.so.4
 %dir %{_datadir}/yaz
 %{_datadir}/yaz/etc
 %{_datadir}/yaz/ill
@@ -116,6 +115,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/yaz-iconv.1*
 %{_mandir}/man1/yaz-icu.1*
 %{_mandir}/man1/yaz-illclient.1*
+%{_mandir}/man1/yaz-json-parse.1*
 %{_mandir}/man1/yaz-marcdump.1*
 %{_mandir}/man1/zoomsh.1*
 %{_mandir}/man7/bib1-attr.7*
@@ -134,9 +134,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libyaz_icu.la
 %{_libdir}/libyaz_server.la
 %{_includedir}/yaz
-%{_aclocaldir}/yaz.m4
-%{_mandir}/man8/yaz-config.8*
 %{_pkgconfigdir}/yaz.pc
+%{_aclocaldir}/yaz.m4
+%{_mandir}/man1/yaz-config.1*
 
 %files static
 %defattr(644,root,root,755)
