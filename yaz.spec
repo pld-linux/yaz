@@ -1,12 +1,12 @@
 Summary:	Z39.50 protocol support library
 Summary(pl.UTF-8):	Biblioteka obsługująca protokół Z39.50
 Name:		yaz
-Version:	4.2.4
+Version:	4.2.8
 Release:	1
 License:	BSD-like
 Group:		Libraries
 Source0:	http://ftp.indexdata.dk/pub/yaz/%{name}-%{version}.tar.gz
-# Source0-md5:	e683d3c608accd07525d701f9e625e27
+# Source0-md5:	e40c6ed995bb5a1dd8955507ec999fd8
 URL:		http://www.indexdata.dk/yaz/
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake >= 1:1.9
@@ -98,6 +98,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/yaz-illclient
 %attr(755,root,root) %{_bindir}/yaz-json-parse
 %attr(755,root,root) %{_bindir}/yaz-marcdump
+%attr(755,root,root) %{_bindir}/yaz-url
 %attr(755,root,root) %{_bindir}/yaz-ztest*
 %attr(755,root,root) %{_bindir}/zoomsh
 %attr(755,root,root) %{_libdir}/libyaz.so.*.*.*
@@ -117,6 +118,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/yaz-illclient.1*
 %{_mandir}/man1/yaz-json-parse.1*
 %{_mandir}/man1/yaz-marcdump.1*
+%{_mandir}/man1/yaz-url.1*
 %{_mandir}/man1/zoomsh.1*
 %{_mandir}/man7/bib1-attr.7*
 %{_mandir}/man7/yaz.7*
