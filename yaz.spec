@@ -1,12 +1,12 @@
 Summary:	Z39.50 protocol support library
 Summary(pl.UTF-8):	Biblioteka obsługująca protokół Z39.50
 Name:		yaz
-Version:	4.2.66
-Release:	2
+Version:	5.0.2
+Release:	1
 License:	BSD-like
 Group:		Libraries
 Source0:	http://ftp.indexdata.dk/pub/yaz/%{name}-%{version}.tar.gz
-# Source0-md5:	e600b6384285450ec1244246e27b7c6d
+# Source0-md5:	56b40086f9aa251d3cf4d8f8acee3570
 URL:		http://www.indexdata.dk/yaz/
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake >= 1:1.9
@@ -102,11 +102,11 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/yaz-ztest*
 %attr(755,root,root) %{_bindir}/zoomsh
 %attr(755,root,root) %{_libdir}/libyaz.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libyaz.so.4
+%attr(755,root,root) %ghost %{_libdir}/libyaz.so.5
 %attr(755,root,root) %{_libdir}/libyaz_icu.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libyaz_icu.so.4
+%attr(755,root,root) %ghost %{_libdir}/libyaz_icu.so.5
 %attr(755,root,root) %{_libdir}/libyaz_server.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libyaz_server.so.4
+%attr(755,root,root) %ghost %{_libdir}/libyaz_server.so.5
 %dir %{_datadir}/yaz
 %{_datadir}/yaz/etc
 %{_datadir}/yaz/ill
