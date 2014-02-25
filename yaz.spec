@@ -1,22 +1,24 @@
 Summary:	Z39.50 protocol support library
 Summary(pl.UTF-8):	Biblioteka obsługująca protokół Z39.50
 Name:		yaz
-Version:	5.0.12
+Version:	5.0.16
 Release:	1
 License:	BSD-like
 Group:		Libraries
 Source0:	http://ftp.indexdata.dk/pub/yaz/%{name}-%{version}.tar.gz
-# Source0-md5:	cf058dbff163a4ccb859851f56a367c7
+# Source0-md5:	dd72b805954c8ab876898777ac68e013
 URL:		http://www.indexdata.dk/yaz/
 BuildRequires:	autoconf >= 2.60
-BuildRequires:	automake >= 1:1.9
+BuildRequires:	automake >= 1:1.11.1
 BuildRequires:	bison
+BuildRequires:	gnutls-devel
+BuildRequires:	libgcrypt-devel >= 1.2
 BuildRequires:	libicu-devel >= 3.4
+BuildRequires:	libmemcached-devel
 BuildRequires:	libtool >= 1:1.4.2-9
 BuildRequires:	libwrap-devel
 BuildRequires:	libxml2-devel >= 2.0
 BuildRequires:	libxslt-devel >= 1.1.0
-BuildRequires:	openssl-devel >= 0.9.7d
 BuildRequires:	pkgconfig
 BuildRequires:	readline-devel >= 5.0
 BuildRequires:	tcl >= 8.2
@@ -35,10 +37,13 @@ Summary:	Header files for YAZ library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki YAZ
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	gnutls-devel
+Requires:	libgcrypt-devel >= 1.2
+Requires:	libicu-devel >= 3.4
+Requires:	libmemcached-devel
 Requires:	libwrap-devel
 Requires:	libxml2-devel >= 2.0
 Requires:	libxslt-devel >= 1.1.0
-Requires:	openssl-devel >= 0.9.7d
 
 %description devel
 Header files for YAZ library.
@@ -67,9 +72,7 @@ Statyczne biblioteki YAZ.
 %{__autoconf}
 %{__automake}
 %configure \
-	--enable-shared \
-	--enable-tcpd \
-	--with-openssl
+	--enable-tcpd
 
 %{__make}
 
