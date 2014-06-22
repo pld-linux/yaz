@@ -1,20 +1,21 @@
 Summary:	Z39.50 protocol support library
 Summary(pl.UTF-8):	Biblioteka obsługująca protokół Z39.50
 Name:		yaz
-Version:	5.1.0
+Version:	5.2.0
 Release:	1
 License:	BSD-like
 Group:		Libraries
 Source0:	http://ftp.indexdata.dk/pub/yaz/%{name}-%{version}.tar.gz
-# Source0-md5:	ef6e37c7d501d1edf42c33204b64b529
+# Source0-md5:	9368470dcd17691fc205a508b57ad3ef
 URL:		http://www.indexdata.dk/yaz/
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake >= 1:1.11.1
 BuildRequires:	bison
 BuildRequires:	gnutls-devel
+BuildRequires:	hiredis-devel >= 0.10
 BuildRequires:	libgcrypt-devel >= 1.2
 BuildRequires:	libicu-devel >= 3.4
-BuildRequires:	libmemcached-devel
+BuildRequires:	libmemcached-devel >= 0.40
 BuildRequires:	libtool >= 1:1.4.2-9
 BuildRequires:	libwrap-devel
 BuildRequires:	libxml2-devel >= 2.0
@@ -22,6 +23,10 @@ BuildRequires:	libxslt-devel >= 1.1.0
 BuildRequires:	pkgconfig
 BuildRequires:	readline-devel >= 5.0
 BuildRequires:	tcl >= 8.2
+Requires:	hiredis >= 0.10
+Requires:	libgcrypt >= 1.2
+Requires:	libmemcached >= 0.40
+Requires:	libxslt >= 1.1.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -38,9 +43,10 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki YAZ
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gnutls-devel
+Requires:	hiredis-devel >= 0.10
 Requires:	libgcrypt-devel >= 1.2
 Requires:	libicu-devel >= 3.4
-Requires:	libmemcached-devel
+Requires:	libmemcached-devel >= 0.40
 Requires:	libwrap-devel
 Requires:	libxml2-devel >= 2.0
 Requires:	libxslt-devel >= 1.1.0
