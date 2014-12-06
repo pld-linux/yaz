@@ -7,7 +7,7 @@ License:	BSD-like
 Group:		Libraries
 Source0:	http://ftp.indexdata.dk/pub/yaz/%{name}-%{version}.tar.gz
 # Source0-md5:	45ebcda4a5fb194fa481b769572e2142
-URL:		http://www.indexdata.dk/yaz/
+URL:		http://www.indexdata.com/yaz/
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake >= 1:1.11.1
 BuildRequires:	bison
