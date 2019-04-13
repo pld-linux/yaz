@@ -1,12 +1,12 @@
 Summary:	Z39.50 protocol support library
 Summary(pl.UTF-8):	Biblioteka obsługująca protokół Z39.50
 Name:		yaz
-Version:	5.12.0
-Release:	8
+Version:	5.27.1
+Release:	1
 License:	BSD-like
 Group:		Libraries
 Source0:	http://ftp.indexdata.dk/pub/yaz/%{name}-%{version}.tar.gz
-# Source0-md5:	70de2fde560f9ced0c5a4744d3ebdb8a
+# Source0-md5:	8654b751e51c790eab403a6023e1b0fa
 URL:		http://www.indexdata.com/yaz/
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake >= 1:1.11.1
@@ -102,7 +102,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ChangeLog LICENSE NEWS README
+%doc ChangeLog LICENSE NEWS README.md
 %attr(755,root,root) %{_bindir}/yaz-asncomp
 %attr(755,root,root) %{_bindir}/yaz-client*
 %attr(755,root,root) %{_bindir}/yaz-iconv
@@ -110,6 +110,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/yaz-illclient
 %attr(755,root,root) %{_bindir}/yaz-json-parse
 %attr(755,root,root) %{_bindir}/yaz-marcdump
+%attr(755,root,root) %{_bindir}/yaz-record-conv
 %attr(755,root,root) %{_bindir}/yaz-url
 %attr(755,root,root) %{_bindir}/yaz-ztest*
 %attr(755,root,root) %{_bindir}/zoomsh
@@ -130,6 +131,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/yaz-illclient.1*
 %{_mandir}/man1/yaz-json-parse.1*
 %{_mandir}/man1/yaz-marcdump.1*
+%{_mandir}/man1/yaz-record-conv.1*
 %{_mandir}/man1/yaz-url.1*
 %{_mandir}/man1/zoomsh.1*
 %{_mandir}/man7/bib1-attr.7*
