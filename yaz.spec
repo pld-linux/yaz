@@ -1,13 +1,13 @@
 Summary:	Z39.50 protocol support library
 Summary(pl.UTF-8):	Biblioteka obsługująca protokół Z39.50
 Name:		yaz
-Version:	5.27.1
-Release:	4
+Version:	5.30.3
+Release:	1
 License:	BSD-like
 Group:		Libraries
 Source0:	http://ftp.indexdata.dk/pub/yaz/%{name}-%{version}.tar.gz
-# Source0-md5:	8654b751e51c790eab403a6023e1b0fa
-URL:		http://www.indexdata.com/yaz/
+# Source0-md5:	b32756b44fcde17bee09ea53b2ee334c
+URL:		https://www.indexdata.com/resources/software/yaz/
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake >= 1:1.11.1
 BuildRequires:	bison
@@ -76,6 +76,7 @@ Statyczne biblioteki YAZ.
 %{__libtoolize}
 %{__aclocal} -I m4
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure \
 	--enable-tcpd
@@ -89,7 +90,7 @@ rm -rf $RPM_BUILD_ROOT
 	docDATA_INSTALL="install -p" \
 	DESTDIR=$RPM_BUILD_ROOT
 
-mv -f $RPM_BUILD_ROOT%{_docdir}/yaz doc-dist
+%{__mv} $RPM_BUILD_ROOT%{_docdir}/yaz doc-dist
 
 # obsoleted by pkg-config
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libyaz*.la
@@ -148,6 +149,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libyaz_server.so
 %{_includedir}/yaz
 %{_pkgconfigdir}/yaz.pc
+%{_pkgconfigdir}/yaz-icu.pc
+%{_pkgconfigdir}/yaz-server.pc
 %{_aclocaldir}/yaz.m4
 %{_mandir}/man1/yaz-config.1*
 
